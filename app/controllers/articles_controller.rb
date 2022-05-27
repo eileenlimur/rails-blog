@@ -15,9 +15,9 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_params)
 
         if @article.save
-        redirect_to @article
+            redirect_to @article
         else
-        render :new, status: :unprocessable_entity
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -29,9 +29,9 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
 
         if @article.update(article_params)
-        redirect_to @article
+            redirect_to @article
         else
-        render :edit, status: :unprocessable_entity
+            render :edit, status: :unprocessable_entity
         end
     end
 
@@ -44,6 +44,6 @@ class ArticlesController < ApplicationController
 
     private
         def article_params
-        params.require(:article).permit(:title, :body, :status)
+            params.require(:article).permit(:title, :body, :status)
         end
 end
